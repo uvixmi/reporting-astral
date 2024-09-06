@@ -1,0 +1,723 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AKB",
+    "version": "0.1.28"
+  },
+  "servers": [
+    {
+      "url": "/fns_reports"
+    }
+  ],
+  "paths": {
+    "/auth": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Login",
+        "operationId": "login_auth_post",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_login_auth_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Внутренняя ошибка сервера",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Произошла внутренняя ошибка сервиса. Пожалуйста, обратитесь к администрации ",
+                  "error_key": "internal_server_error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Refresh Token",
+        "operationId": "refresh_token_auth_refresh_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Внутренняя ошибка сервера",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Произошла внутренняя ошибка сервиса. Пожалуйста, обратитесь к администрации ",
+                  "error_key": "internal_server_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ]
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Получить информацию по пользователю в системе отчетности",
+        "description": "Данный метод возвращает информацию по пользователю, зарегистрированному в системе отчетности",
+        "operationId": "user_astral_info_users_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportsUser"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Внутренняя ошибка сервера",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Произошла внутренняя ошибка сервиса. Пожалуйста, обратитесь к администрации ",
+                  "error_key": "internal_server_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ]
+      }
+    },
+    "/users/registration": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Обновить данные по ранее зарегистрированному пользователю в системе отчетности",
+        "description": "Данный метод реализует регистрацию пользователя в системе отчетности",
+        "operationId": "user_to_astral_update_users_registration_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportsUserRegistration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Внутренняя ошибка сервера",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Произошла внутренняя ошибка сервиса. Пожалуйста, обратитесь к администрации ",
+                  "error_key": "internal_server_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Зарегистрировать пользователя в системе отчетности",
+        "description": "Данный метод реализует регистрацию пользователя в системе отчетности. Перед регистрацией обязательна загрузка файла сертификата.",
+        "operationId": "user_to_astral_users_registration_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportsUserRegistration"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Внутренняя ошибка сервера",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Произошла внутренняя ошибка сервиса. Пожалуйста, обратитесь к администрации ",
+                  "error_key": "internal_server_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ]
+      }
+    },
+    "/users/registration/statuses": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Получить цепочку статусов регистрации пользователя в системе отчетности",
+        "description": "Данный метод возвращает цепочку статусов по регистрации и обновлению пользовательских данных в системе отчетности.",
+        "operationId": "user_registration_statuses_users_registration_statuses_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRegistrationEvents"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Внутренняя ошибка сервера",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Произошла внутренняя ошибка сервиса. Пожалуйста, обратитесь к администрации ",
+                  "error_key": "internal_server_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ]
+      }
+    },
+    "/users/registration/certificate": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Обновить публичный сертификат пользователя в систему отчетности",
+        "description": "Данный метод реализует загрузку обновление сертификата пользователя в системе отчетности",
+        "operationId": "user_certificate_update_users_registration_certificate_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCertificate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Внутренняя ошибка сервера",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Произошла внутренняя ошибка сервиса. Пожалуйста, обратитесь к администрации ",
+                  "error_key": "internal_server_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Загрузить публичный сертификат пользователя в систему отчетности",
+        "description": "Данный метод реализует загрузку сертификата пользователя для регистрации пользователя в системе отчетности",
+        "operationId": "user_certificate_users_registration_certificate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCertificate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Внутренняя ошибка сервера",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Произошла внутренняя ошибка сервиса. Пожалуйста, обратитесь к администрации ",
+                  "error_key": "internal_server_error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body_login_auth_post": {
+        "properties": {
+          "grant_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "password"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Grant Type"
+          },
+          "username": {
+            "type": "string",
+            "title": "Username"
+          },
+          "password": {
+            "type": "string",
+            "title": "Password"
+          },
+          "scope": {
+            "type": "string",
+            "title": "Scope",
+            "default": ""
+          },
+          "client_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Client Id"
+          },
+          "client_secret": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Client Secret"
+          }
+        },
+        "type": "object",
+        "required": [
+          "username",
+          "password"
+        ],
+        "title": "Body_login_auth_post"
+      },
+      "EventDirection": {
+        "type": "string",
+        "enum": [
+          "incoming",
+          "outgoing"
+        ],
+        "title": "EventDirection"
+      },
+      "EventInternalCode": {
+        "type": "string",
+        "enum": [
+          "registration",
+          "declaration_sending",
+          "notification_sending"
+        ],
+        "title": "EventInternalCode"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "RegistrationStatus": {
+        "type": "string",
+        "enum": [
+          "not_started",
+          "certificate_added",
+          "in_progress",
+          "failed",
+          "completed"
+        ],
+        "title": "RegistrationStatus"
+      },
+      "ReportsEvent": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id",
+            "description": "Идентификатор события"
+          },
+          "user_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Id",
+            "description": "Идентификатор пользователя, к которому относится событие"
+          },
+          "parent_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Id",
+            "description": "Идентификатор родительского события"
+          },
+          "direction": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventDirection"
+              }
+            ],
+            "description": "Источник/направление события"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Код события из системы отчетности"
+          },
+          "internal_code": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EventInternalCode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Внутренний код события"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Дата и время события"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "direction",
+          "code",
+          "created_at"
+        ],
+        "title": "ReportsEvent"
+      },
+      "ReportsUser": {
+        "properties": {
+          "certificate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Certificate",
+            "description": "Публичный сертификат пользователя"
+          },
+          "registration_status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RegistrationStatus"
+              }
+            ],
+            "description": "Статус пользователя по регистрации в системе отчетности. Возможные значения: 1. not_started - регистрация не начата. 2. certificate_added - регистрация начата, добавлен сертификат. 3. in_progress - запрос на регистрацию отправлен, идет проверка. 4. failed - запрос на регистрацию завершился ошибкой. 4. completed - запрос на регистрацию завершился успешно."
+          },
+          "status_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Reason",
+            "description": "Статус код из системы отчетности"
+          }
+        },
+        "type": "object",
+        "required": [
+          "registration_status"
+        ],
+        "title": "ReportsUser"
+      },
+      "ReportsUserRegistration": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "title": "Email",
+            "description": "Электронная почта пользователя"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email"
+        ],
+        "title": "ReportsUserRegistration"
+      },
+      "Token": {
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "title": "Access Token"
+          },
+          "token_type": {
+            "type": "string",
+            "title": "Token Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "access_token",
+          "token_type"
+        ],
+        "title": "Token"
+      },
+      "UserCertificate": {
+        "properties": {
+          "certificate": {
+            "type": "string",
+            "title": "Certificate",
+            "description": "Публичный сертификат пользователя"
+          }
+        },
+        "type": "object",
+        "required": [
+          "certificate"
+        ],
+        "title": "UserCertificate"
+      },
+      "UserRegistrationEvents": {
+        "properties": {
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/ReportsEvent"
+            },
+            "type": "array",
+            "title": "Events",
+            "description": "Список событий по регистрации клиента в системе отчетности. Отсортирован по дате событий"
+          }
+        },
+        "type": "object",
+        "required": [
+          "events"
+        ],
+        "title": "UserRegistrationEvents"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "OAuth2PasswordBearer": {
+        "type": "oauth2",
+        "flows": {
+          "password": {
+            "scopes": {},
+            "tokenUrl": "auth"
+          }
+        }
+      }
+    }
+  }
+}

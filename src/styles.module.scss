@@ -1,0 +1,40 @@
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text-description {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.title-font {
+  font-family: "Inter";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+}
+
+.certificates-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputs-window {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wrapper-inner {
+  display: flex;
+  justify-content: center;
+}
