@@ -7,6 +7,7 @@ import { api } from "./api/myApi"
 import Cookies from "js-cookie"
 import { useAuth } from "./AuthContext"
 import forge from "node-forge"
+import { Tasks } from "./Tasks"
 
 const { Header, Content, Sider } = Layout
 const { Text } = Typography
@@ -52,6 +53,7 @@ export const Reportings = () => {
     const fetch = async () => {
       const certificateRes = await getCertificate(selectedCertificate || "")
       const base64 = await certificateRes.exportBase64()
+      console.log(certificateRes.thumbprint)
       console.log(base64)
       setCertificate(base64)
       setCertificateDetails(certificateRes)
@@ -69,6 +71,8 @@ export const Reportings = () => {
     return bytes.buffer
   }
 
+  const [isAdded, setIsAdded] = useState(false)
+
   useEffect(() => {
     const fetch = async () => {
       const rest =
@@ -78,6 +82,10 @@ export const Reportings = () => {
       const rest1 = await api.users.userAstralInfoUsersGet({
         headers,
       })
+      if (rest1.data.registration_status == "certificate_added")
+        setIsAdded(true)
+      else setIsAdded(false)
+
       //rest1.data.certificate && console.log(rest1.data.certificate)
     }
     fetch()
@@ -137,7 +145,40 @@ export const Reportings = () => {
             alignItems: "center",
           }}
         >
-          {step === 0 ? (
+          {isAdded ? (
+            step === 0 ? (
+              <div className={styles["content-wrapper"]}>
+                <Text className={styles["title-font"]}>
+                  {"Сертификат зарегистрирован"}
+                </Text>
+                <Text className={styles["text-description"]}>
+                  {"Можете перейти в задачи или обновить сертификат"}
+                </Text>
+
+                <Button
+                  type="primary"
+                  style={{ marginTop: 16, width: "200px" }}
+                  onClick={() => {
+                    setIsAdded(false)
+                    setStep(1)
+                  }}
+                >
+                  Обновить сертификат
+                </Button>
+                <Button
+                  type="primary"
+                  style={{ marginTop: 16, width: "200px" }}
+                  onClick={() => setStep(1)}
+                >
+                  Перейти в задачи
+                </Button>
+              </div>
+            ) : step === 1 ? (
+              <Tasks />
+            ) : (
+              <></>
+            )
+          ) : step === 0 ? (
             <div className={styles["content-wrapper"]}>
               <Text className={styles["title-font"]}>
                 {"Подготовка компьютера"}

@@ -1,0 +1,47 @@
+@import "./../theme/colors.scss";
+
+.select-custom .ant-select-selector {
+  border-radius: 4px !important;
+  border: 1px solid $base-secondary-2 !important;
+
+  &:hover {
+    border: 1px solid $base-secondary-1;
+  }
+  &:focus {
+    border: 1px solid $brand-primary;
+    box-shadow: 0px 0px 0px 2px #f0f0ff;
+  }
+}
+
+.ant-select-dropdown {
+  border-radius: 4px !important;
+}
+
+.select-custom .ant-select-option-selected {
+  border-radius: 0 !important;
+}
+.select-custom .ant-select-item-option-selected {
+  border-radius: 0 !important;
+}
+
+.select-custom .ant-select-item {
+  border-radius: 0 !important;
+}
+
+.select-custom .ant-select-selection-placeholder {
+  font-family: "Inter" !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  line-height: 22px !important;
+  text-align: left;
+  color: $base-secondary-1;
+}
+
+.select-custom .ant-select-selection-placeholder {
+  font-family: "Inter" !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  line-height: 22px !important;
+  text-align: left;
+  color: $base-secondary-1;
+}

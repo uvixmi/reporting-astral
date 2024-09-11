@@ -1,0 +1,1040 @@
+@import "../src/ui-kit/theme/colors.scss";
+@import "../src/ui-kit/theme/fonts.scss";
+
+$mobile: 320px;
+$tablet: 768px;
+$s: 1024px;
+$m: 1280px;
+$l: 1440px;
+$xl: 1920px;
+$xxl: 2560px;
+
+.left-sider-wrapper {
+  background-color: #fff;
+  width: 200px;
+  border-right: 1px solid #d9d9d9;
+}
+
+.left-sider-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.left-sider-menu-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.left-sider-menu {
+  margin: 0 16px 0 30px;
+}
+
+.right-sider-wrapper {
+  background-color: #fff;
+  border-left: 1px solid #d9d9d9;
+  padding-top: 116px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media screen and (min-width: $m) {
+    padding-top: 92px;
+  }
+
+  @media screen and (min-width: $l) {
+    padding-left: 24px;
+  }
+}
+
+.heading-text {
+  font-family: "Inter";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+
+  @media screen and (min-width: $s) {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+  }
+  @media screen and (min-width: $l) {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  @media screen and (min-width: $xl) {
+    font-size: 42px;
+    line-height: 50px;
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  gap: 8px;
+  padding: 24px 14px 66px;
+
+  @media screen and (min-width: $m) {
+    margin: 32px 24px 0px 274px;
+    padding: 0;
+    gap: 24px;
+  }
+}
+
+.logo-inner {
+  max-height: 64px;
+}
+
+.remark-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 4px;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and (min-width: $s) {
+    flex-direction: row;
+
+    gap: 16px;
+  }
+}
+
+.remark-button {
+  border-radius: 4px;
+  background: #6159ff;
+  color: #fff;
+  height: 100%;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 143px;
+  }
+}
+
+.remark-text {
+  display: flex;
+  padding: 12px 54px 12px 12px;
+  border-radius: 4px;
+  flex-direction: column;
+  row-gap: 12px;
+  height: 44px;
+  width: 100%;
+  background-color: $brand-secondary-pale;
+  text-wrap: nowrap;
+  gap: 8px;
+
+  @media screen and (min-width: $tablet) {
+    gap: 12px;
+    width: 461px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.logo-item {
+  margin: 20px 40px;
+  cursor: pointer;
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.card-item {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  min-width: 216px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  height: 162px;
+}
+
+.card-inner {
+  font-family: "Inter";
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  line-height: 16px;
+  font-size: 12px;
+}
+
+.taxes-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.amount-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.taxes-button {
+  font-family: "Inter";
+  height: 26px;
+  border-radius: 2px;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.button-paid {
+  width: 94px;
+}
+
+.list-item {
+  border: none;
+}
+
+.income-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 16px 0;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.datepicker-item {
+  width: 240px;
+}
+
+.account-select {
+  flex-grow: 1;
+}
+
+.operation-select {
+  width: 155px;
+}
+
+.currency-amount {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.card-fix {
+  background: #fff4ea;
+}
+
+.card-super {
+  background: #ecf6ee;
+}
+
+.link-details {
+  color: #6159ff;
+  cursor: pointer;
+
+  @media screen and (min-width: $l) {
+    margin-right: 20px;
+  }
+}
+
+.income-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.sider-buttons {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.default-button {
+  border-radius: 2px;
+  border: 1px solid #9984ff;
+  color: #6159ff;
+}
+
+.list-item-right {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row-item {
+  border-bottom: 1px solid #d9d9d9;
+  width: 100%;
+  min-height: 178px;
+  padding: 24px 0px 24px;
+  border-radius: 4px;
+
+  @media screen and (min-width: $tablet) {
+    min-height: auto;
+    padding: 16px 0px;
+    gap: 24px;
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: $l) {
+    padding: 24px 0px;
+    gap: 64px;
+  }
+}
+
+.row-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  @media screen and (min-width: $tablet) {
+    justify-content: space-between;
+    gap: 4px;
+    flex-direction: row;
+  }
+}
+
+.row-item-buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-width: 210px;
+
+  @media screen and (min-width: $tablet) {
+    width: 314px;
+  }
+}
+
+.row-item-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  @media screen and (min-width: $tablet) {
+  }
+}
+
+.info-title {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-part {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 370px;
+  }
+
+  @media screen and (min-width: $s) {
+    max-width: none;
+  }
+
+  @media screen and (min-width: $l) {
+    min-width: 371px;
+  }
+
+  @media screen and (min-width: $xl) {
+    width: 100%;
+  }
+}
+
+.title-style {
+  margin: 0;
+}
+
+.amount-part {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @media screen and (min-width: $tablet) {
+    gap: 16px;
+    width: 330px;
+  }
+
+  @media screen and (min-width: $l) {
+    gap: 8px;
+    max-width: 371px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: $xl) {
+    max-width: 452px;
+    width: 452px;
+  }
+}
+.amount-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.amount-paid-text {
+  font-family: "Inter";
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 22px !important;
+  text-align: left;
+  color: $base-additional-grey !important;
+}
+
+.amount-heading {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: $base-secondary-1;
+}
+
+.amount-heading-formed {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  color: $base-additional-grey;
+  width: 150px;
+
+  @media screen and (min-width: $l) {
+    text-wrap: nowrap;
+    width: auto;
+  }
+}
+
+.amount-heading-quarter {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: $base-secondary-1;
+}
+
+.amount-to-pay-text {
+  font-family: "Inter";
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 28px !important;
+  color: #141414;
+}
+
+.amount-pay {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.text-date {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  font-family: "Inter";
+  text-align: left;
+}
+
+.alert-date {
+  color: $red-secondary-1;
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.alert-date-text {
+  color: $red-primary;
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.soon-date {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: $orange-additional-dark;
+}
+
+.text-description {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: $base-additional-grey;
+}
+
+.amount-button {
+  width: 100%;
+  min-width: 210px;
+
+  @media screen and (min-width: $tablet) {
+    width: 207px;
+  }
+
+  @media screen and (min-width: $l) {
+    width: 314px;
+  }
+
+  @media screen and (min-width: $xl) {
+    width: 314px;
+  }
+}
+
+.paid-button {
+  border: none;
+  background: none;
+  color: $brand-primary;
+  box-shadow: none;
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 34px;
+  padding: 2px 0px;
+  width: 130px;
+
+  &:disabled {
+    border: none !important;
+    background: none !important;
+    color: $brand-primary !important;
+  }
+
+  &:active {
+    border: none !important;
+    background: none !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: $brand-primary !important;
+    box-shadow: none !important;
+  }
+
+  @media screen and (min-width: $tablet) {
+  }
+
+  @media screen and (min-width: $xl) {
+    width: 130px;
+  }
+}
+
+.update-wrapper {
+  background: #f0f0ff;
+  height: 194px;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.update-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  position: relative;
+}
+
+.update-text-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.update-text {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+}
+
+.update-text-link {
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  color: $brand-primary !important;
+}
+
+.update-taxes-link {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.005em;
+  text-align: left;
+  color: #6159ff;
+}
+
+.declaration-wrapper {
+  padding: 8px;
+  border-radius: 8px;
+
+  display: flex;
+  background-color: $base-secondary-pale;
+  flex-direction: column;
+
+  @media screen and (min-width: $tablet) {
+    gap: 8px;
+  }
+
+  @media screen and (min-width: $xl) {
+    flex-direction: row;
+  }
+}
+
+.declaration-text {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: $base-primary-dark;
+}
+
+.declaration-link {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: $brand-primary !important;
+}
+
+.declaration-link-operations {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: left;
+  color: $brand-primary !important;
+}
+
+.date-title-overdue {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.warning-overdue {
+  background-color: $red-secondary-pale;
+  padding: 1px 8px;
+  border-radius: 4px;
+}
+
+.soon-overdue {
+  background-color: $oragne-secondary-pale;
+  padding: 0 8px;
+  border-radius: 4px;
+}
+
+.download-button {
+  height: auto;
+
+  width: 100%;
+
+  @media screen and (min-width: $tablet) {
+    width: 50%;
+  }
+}
+
+.delete-banner {
+  margin-top: 8px;
+  border: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: inherit;
+
+  &:hover {
+    background: inherit !important;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+    background: inherit;
+  }
+}
+
+.sider-inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.icon-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sider-icon {
+  font-size: 19px;
+  color: #9984ff;
+}
+
+.left-part-row {
+  display: flex;
+
+  gap: 24px;
+
+  @media screen and (min-width: $s) {
+    width: 340px;
+  }
+
+  @media screen and (min-width: $l) {
+    min-width: 340px;
+    width: auto;
+  }
+}
+
+.ordinary-icon {
+  color: #8c8c8c !important;
+}
+
+.soon-icon {
+  color: $orange-primary !important;
+}
+
+.alert-icon {
+  color: $red-primary !important;
+}
+
+.right-header-part {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.block-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  justify-content: center;
+  height: 100%;
+
+  @media screen and (min-width: $s) {
+    margin-top: 150px;
+  }
+}
+
+.block-new-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.title-block {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: center;
+}
+
+.text-block {
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+
+.link-block {
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: $brand-primary !important;
+}
+
+.remark-text-medium {
+  display: flex;
+  padding: 12px 24px 12px 12px;
+  border-radius: 4px;
+  flex-direction: column;
+  row-gap: 12px;
+  margin-top: 6px;
+
+  background-color: $brand-secondary-pale;
+
+  @media screen and (min-width: $tablet) {
+    height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.buttons-header {
+  display: flex;
+  gap: 14px;
+  flex-direction: column-reverse;
+  width: 100%;
+
+  @media screen and (min-width: $s) {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+.header-button-item {
+  width: auto;
+}
+
+.header-button-item-update {
+  @media screen and (min-width: $s) {
+    width: 170px;
+  }
+}
+
+.default-icon {
+  height: 18px;
+  color: $base-secondary-1;
+  margin-left: -8px;
+
+  @media screen and (min-width: $l) {
+    margin-left: auto;
+    height: auto;
+  }
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  font-family: "Inter";
+
+  color: $base-primary-dark;
+
+  @media screen and (min-width: $l) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.info-icon-amount {
+  color: $base-secondary-1;
+}
+
+.amount-tooltip {
+  color: #fff !important;
+}
+
+.hide-icon {
+  width: 14px;
+  padding: 0;
+}
+
+.banner-title {
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  color: $brand-additional-dark;
+}
+
+.formed-date {
+  display: flex;
+  padding: 1px 8px;
+  gap: 3px;
+  border-radius: 8px;
+  background: #f0f0f0;
+  width: 100%;
+  min-width: 210px;
+  justify-content: center;
+
+  @media screen and (min-width: $s) {
+    width: 223px;
+  }
+
+  @media screen and (min-width: $m) {
+    width: 314px;
+  }
+}
+
+.report-icon-amount {
+  color: $red-additional-dark;
+}
+
+.source-link-title {
+  font-family: "Inter";
+  color: $brand-primary !important;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.open-source-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: $s) {
+    margin-bottom: auto;
+  }
+}
+
+.notifcations-inner {
+  position: relative;
+}
+
+.notifications-count {
+  height: 6px;
+  width: 6px;
+  display: flex;
+  background: $red-primary;
+  border-radius: 50%;
+  justify-content: center;
+  justify-self: flex-end;
+  align-items: center;
+  font-family: "Inter";
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}
+
+.remark-ens-text {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.xml-pdf-button {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  color: $brand-primary;
+  margin-left: 0px !important;
+}
+
+.button-updating {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  color: $brand-primary;
+  margin-left: 14px;
+}
+
+.tooltip-amount {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tooltip-text {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #fff !important;
+}
+
+.button-notifications {
+  border: none;
+  padding: 0;
+}
+
+.taxes-error-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  gap: 8px;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 200px;
+  }
+}
+
+.taxes-error-title {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: left;
+  color: #141414;
+  margin-top: 28px;
+}
+
+.non-text {
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.select-download {
+  min-width: 210px;
+
+  @media screen and (min-width: $tablet) {
+    width: 207px;
+  }
+
+  @media screen and (min-width: $l) {
+    width: 314px;
+  }
+
+  @media screen and (min-width: $xl) {
+    width: 314px;
+  }
+}
+
+.label-download {
+  color: $brand-primary;
+
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.send-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.send-title-block {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: left;
+}
+
+.back-button {
+  width: 250px;
+}
